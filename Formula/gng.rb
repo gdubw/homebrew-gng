@@ -18,6 +18,6 @@ class Gng < Formula
     because: "GNG is the successor of `gdub`, Please visit https://gng.dsun.org for details"
 
   test do
-     assert_match "[ERROR] No gradlew set up for this project; *", pipe_output("#{bin}/gw 2>&1")
+     assert_match /No gradlew set up for this project.*/, pipe_output("#{bin}/gw 2>&1")
   end
 end
