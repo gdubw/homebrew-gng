@@ -14,7 +14,7 @@ class Gng < Formula
     lib.install Dir["lib/*"]
   end
 
-  conflicts_with "gdub"
+  conflicts_with "gdub",
     because: "GNG is providing the accessor of `gdub`, Please visit https://gng.dsun.org for details"
 
   test do
