@@ -15,7 +15,7 @@ class Gng < Formula
   end
 
   conflicts_with "gdub",
-    because: "GNG is providing the accessor of `gdub`, Please visit https://gng.dsun.org for details"
+    because: "GNG is the successor of `gdub`, Please visit https://gng.dsun.org for details"
 
   test do
      assert_match "[ERROR] No gradlew set up for this project; *", pipe_output("#{bin}/gw 2>&1")
