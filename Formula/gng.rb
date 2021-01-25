@@ -10,11 +10,24 @@ class Gng < Formula
   conflicts_with "gdub",
     because: "GNG is the accessor of `gdub`, Please visit https://gng.dsun.org for details"
 
+  depends_on "gettext"
+
   def install
     cp_r "gradle", "#{prefix}/gradle"
     bin.install "bin/gng"
     bin.install "bin/gw"
     lib.install Dir["lib/*"]
+  end
+
+  def post_install
+    ohai <<-FOO
+To avoid using any system wide Gradle distribution add a gradle alias to gw to your shell’s configuration file.
+
+echo "alias gradle=gw" >> ~/.bashrc
+echo "export PATH=/usr/local/bin:${PATH}" >> ~/.bashrc
+source ~/.bashrc
+
+FOO
   end
 
   test do
