@@ -2,7 +2,7 @@ class Gng < Formula
   desc "Gradle is Not Gradle"
   homepage "https://gng.dsun.org"
   url "https://github.com/gdubw/gng/archive/v1.0.2.tar.gz"
-  sha256 "61d4cfa0d72219bfcb812cfcc35e31492d0b6359025cf5aee14230e6e3b69d68"
+  sha256 "fb6a80b4244c32aaf592c5772145558f6eef040dbed7e1c9670e18f1d54b39f0"
   license "Apache-2.0"
 
   bottle :unneeded
