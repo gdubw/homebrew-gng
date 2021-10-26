@@ -5,8 +5,6 @@ class Gng < Formula
   sha256 "2ae84cedf372e50beea12f5ef13ee58892c87b0bea379709e34b01df6b5a255c"
   license "Apache-2.0"
 
-  bottle :unneeded
-
   conflicts_with "gdub",
     because: "GNG is the accessor of `gdub`, Please visit https://gng.dsun.org for details"
 
