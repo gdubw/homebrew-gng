@@ -5,12 +5,10 @@ class Gng < Formula
   sha256 "2ae84cedf372e50beea12f5ef13ee58892c87b0bea379709e34b01df6b5a255c"
   license "Apache-2.0"
 
-  bottle :unneeded
+  depends_on "gettext"
 
   conflicts_with "gdub",
     because: "GNG is the accessor of `gdub`, Please visit https://gng.dsun.org for details"
-
-  depends_on "gettext"
 
   def install
     cp_r "gradle", "#{prefix}/gradle"
@@ -20,17 +18,17 @@ class Gng < Formula
   end
 
   def post_install
-    ohai <<-FOO
-To avoid using any system wide Gradle distribution add a gradle alias to gw to your shell’s configuration file.
+    ohai <<~FOO
+      To avoid using any system wide Gradle distribution add a gradle alias to gw to your shell’s configuration file.
 
-echo "alias gradle=gw" >> ~/.bashrc
-echo "export PATH=/usr/local/bin:${PATH}" >> ~/.bashrc
-source ~/.bashrc
+      echo "alias gradle=gw" >> ~/.bashrc
+      echo "export PATH=/usr/local/bin:${PATH}" >> ~/.bashrc
+      source ~/.bashrc
 
-FOO
+    FOO
   end
 
   test do
-    assert_match /No gradlew set up for this project.*/, pipe_output("#{bin}/gw 2>&1")
+    assert_match(/No gradlew set up for this project.*/, pipe_output("#{bin}/gw 2>&1"))
   end
 end
